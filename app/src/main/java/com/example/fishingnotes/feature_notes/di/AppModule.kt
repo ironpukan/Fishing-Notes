@@ -1,4 +1,4 @@
-package com.example.fishingnotes.di
+package com.example.fishingnotes.feature_notes.di
 
 import android.app.Application
 import androidx.room.Room
