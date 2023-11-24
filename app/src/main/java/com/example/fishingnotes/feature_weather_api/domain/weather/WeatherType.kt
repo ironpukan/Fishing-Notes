@@ -1,7 +1,8 @@
-package com.plcoding.weatherapp.domain.weather
+package com.example.fishingnotes.feature_weather_api.domain.weather
 
 import androidx.annotation.DrawableRes
 import com.example.fishingnotes.R
+
 
 sealed class WeatherType(
     val weatherDesc: String,

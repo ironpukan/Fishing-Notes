@@ -2,10 +2,20 @@ package com.example.fishingnotes.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple80 = Color(0xFFD0BCFF)
+val Purple80 = Color(0xFF4F378B)
 val PurpleGrey80 = Color(0xFFCCC2DC)
 val Pink80 = Color(0xFFEFB8C8)
 
 val Purple40 = Color(0xFF6650a4)
 val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
+
+val BlueGreen80 = Color(0xFF00677e)
+val PurpleBlue80 = Color(0xFF5156a9)
+val Blue80 = Color(0xFF006497)
+val White80 = Color(0xFFf8fdff)
+
+val BlueGreen40 = Color(0xFF5BB0FA)
+val PurpleBlue40 = Color(0xFFbfc1ff)
+val Blue40 = Color(0xFF92ccff)
+val Dark40 = Color(0xFF001f25)

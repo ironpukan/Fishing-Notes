@@ -1,7 +1,6 @@
 package com.example.fishingnotes.feature_notes.presentation.notes
 
 import NotesEvent
-import android.util.Log
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -42,7 +41,7 @@ import androidx.navigation.NavController
 import com.example.fishingnotes.feature_notes.domain.model.Note
 import com.example.fishingnotes.feature_notes.presentation.notes.components.NoteItem
 import com.example.fishingnotes.feature_notes.presentation.notes.components.OrderSection
-import com.example.fishingnotes.feature_notes.presentation.util.Screen
+import com.example.fishingnotes.util.Screen
 import kotlinx.coroutines.launch
 
 
@@ -79,7 +78,7 @@ fun NotesScreen(
             ) {
                 Text(
                     "Your note",
-                    style = MaterialTheme.typography.displayLarge,
+                    style = MaterialTheme.typography.displayMedium,
                 )
                 IconButton(onClick = { viewModel.onEvent(NotesEvent.ToggleOrderSection) }) {
                     Icon(
@@ -96,7 +95,7 @@ fun NotesScreen(
                 OrderSection(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(vertical = 16.dp),
+                        .padding(vertical = 8.dp),
                     noteOrder = state.noteOrder,
                     onOrderChange = {
                         viewModel.onEvent(NotesEvent.Order(it))

@@ -1,7 +1,6 @@
 package com.example.fishingnotes.feature_notes.presentation.add_edit_note
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Done
@@ -19,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.fishingnotes.feature_notes.presentation.add_edit_note.components.TransparentHintTextField
+import com.example.fishingnotes.feature_weather_api.presentation.components.WeatherNoteScreen
 import kotlinx.coroutines.flow.collectLatest
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -39,7 +39,6 @@ fun AddEditNoteScreen(
                         message = event.message
                     )
                 }
-
                 is AddEditViewModel.UiEvent.SaveNote -> {
                     navController.navigateUp()
                 }
@@ -51,7 +50,9 @@ fun AddEditNoteScreen(
         snackbarHost = { SnackbarHost(snackbarHostState) },
         floatingActionButton = {
             FloatingActionButton(
-                onClick = { viewModel.onEvent(AddEditNoteEvent.SaveNote) },
+                onClick = {
+                    viewModel.onEvent(AddEditNoteEvent.SaveNote)
+                },
                 containerColor = MaterialTheme.colorScheme.primary
             ) {
                 Icon(imageVector = Icons.Default.Done, contentDescription = "Save note")
@@ -74,6 +75,7 @@ fun AddEditNoteScreen(
                 singleLine = true,
                 textStyle = MaterialTheme.typography.titleMedium
             )
+
             TransparentHintTextField(
                 text = contentState.text,
                 hint = contentState.hint,
@@ -84,8 +86,11 @@ fun AddEditNoteScreen(
                     viewModel.onEvent(AddEditNoteEvent.ChangeContentFocus(it))
                 },
                 isHintVisible = contentState.isHintVisible,
-                textStyle = MaterialTheme.typography.bodyMedium,
-                modifier = Modifier.fillMaxHeight()
+                textStyle = MaterialTheme.typography.bodyMedium
+            )
+            WeatherNoteScreen(
+                modifier = Modifier.padding(paddingValues = paddingValues),
+                state = viewModel.state
             )
         }
     }
