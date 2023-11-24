@@ -1,7 +1,6 @@
 package com.example.fishingnotes.feature_notes.presentation.add_edit_note.components
 
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -13,10 +12,10 @@ import androidx.compose.ui.text.TextStyle
 
 @Composable
 fun TransparentHintTextField(
+    modifier: Modifier = Modifier,
     text: String,
     hint: String,
     isHintVisible: Boolean = true,
-    modifier: Modifier = Modifier,
     onValueChange: (String) -> Unit,
     textStyle: TextStyle = TextStyle(),
     singleLine: Boolean = false,
@@ -30,8 +29,7 @@ fun TransparentHintTextField(
             onValueChange = onValueChange,
             singleLine = singleLine,
             textStyle = textStyle,
-            modifier = Modifier
-                .fillMaxWidth()
+            modifier = modifier
                 .onFocusChanged {
                     onFocusChange(it)
                 }
